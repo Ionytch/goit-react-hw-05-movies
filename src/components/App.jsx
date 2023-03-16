@@ -1,4 +1,10 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "path/to/pages/Home";
+import Movies from "path/to/pages/About";
+import MovieDetails from "path/to/pages/Products";
+import Cast from "path/to/pages/Cast";
+import Reviews from "path/to/pages/Reviews";
+import NotFound from "path/to/pages/NotFound";
 export const App = () => {
   return (
     <div
@@ -11,13 +17,18 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      
+      <nav>
+  <Link to="/" end>Home</Link>
+  <Link to="/movies">Movies</Link>
+  </nav>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
-        <Route path="/movies/:movieId" element={<MovieDetails />} />
-        <Route path="/movies/:movieId/cast" element={<Cast />} />
-        <Route path="/movies/:movieId/reviews" element={<Reviews />} />
+        <Route path="/movies/:movieId" element={<MovieDetails />} >
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

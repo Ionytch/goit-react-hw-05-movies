@@ -1,4 +1,5 @@
 import { trendingMovies } from "components/api/Api";
+import MovieList from "components/moviepage/Movielist";
 import { useEffect, useState } from "react";
 
 const Homepage = () => { 
@@ -23,7 +24,19 @@ const Homepage = () => {
          }}>
             <h2>Trending today</h2>
             {
-                movies.map(item=><ul style={{
+                movies.map(item=><MovieList key={item.id} data={item} />)
+            }
+            
+        
+    </div>
+)
+
+}
+
+export default Homepage;
+
+
+{/* <ul style={{
                     display: 'flex',
                     
         justifyContent: 'center',
@@ -36,12 +49,4 @@ const Homepage = () => {
                         <a href="">{item.title }</a>
                 </li>
             </ul>)
-            }
-            
-        
-    </div>
-)
-
-}
-
-export default Homepage;
+            } */}

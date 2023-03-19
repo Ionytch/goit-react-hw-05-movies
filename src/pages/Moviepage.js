@@ -1,15 +1,16 @@
 import MovieList from "components/moviepage/Movielist";
+import MovieSearchList from "components/moviepage/Moviesearch";
 import Searchbar from "components/searchform/Searchform";
 import { useState } from "react";
 
-const Moviepage = () => {
+const MoviePage = () => {
     const [request, setRequest] = useState ('');
     return (
         <>
             <Searchbar onSubmit={setRequest}></Searchbar>
-            <MovieList request={request}></MovieList>
+            <MovieSearchList request={request.request}></MovieSearchList>
         </>
     )
  }
 
-export default Moviepage;
+export default MoviePage;

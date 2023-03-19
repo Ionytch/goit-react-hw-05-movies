@@ -4,7 +4,8 @@ import Searchbar from "components/searchform/Searchform";
 import { useState } from "react";
 
 const MoviePage = () => {
-    const [request, setRequest] = useState ('');
+    const [request, setRequest] = useState('');
+    
     return (
         <>
             <Searchbar onSubmit={setRequest}></Searchbar>

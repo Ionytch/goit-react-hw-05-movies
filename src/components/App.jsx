@@ -2,7 +2,8 @@ import Homepage from "pages/Homepage";
 import { PageNotFound } from "pages/Notfound";
 import { Routes, Route, Link } from "react-router-dom";
 import MoviePage from "pages/Moviepage";
-import MovieSearchList from "./components/moviepage/Moviesearch";
+import MovieDetailes from "./moviedetales/MovieDetales";
+
 // import Home from "path/to/pages/Home";
 // import Movies from "path/to/pages/About";
 // import MovieDetails from "path/to/pages/Products";
@@ -36,10 +37,10 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Homepage />} />
          <Route path="/movies" element={<MoviePage />} />
-       {/* <Route path="/movies/:movieId" element={<MovieDetails />} >
-          <Route path="cast" element={<Cast />} />
-          <Route path="reviews" element={<Reviews />} />
-        </Route>*/}
+        <Route path="/movies/:id" element={<MovieDetailes />} >
+        {/*  <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />*/}
+        </Route>
         <Route path="*" element={<PageNotFound />} /> 
       </Routes>
     </div>

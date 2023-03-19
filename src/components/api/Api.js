@@ -23,3 +23,11 @@ try {
     console.log(error.message);
 }
 };
+export const getMoviesByID = async(id)=>{
+try {
+    const response = await axios(`${BASE_URL}${movie}/${id}?${API_KEY}&language=en-US`)
+    return response.data;
+} catch (error) {
+    console.log(error.message);
+}
+};

@@ -1,5 +1,7 @@
-const MovieList = ({ key, data }) => {
-             
+import { Link } from "react-router-dom";
+
+const MovieList = ({ data }) => {
+    console.log(data.id);
     return (
         <>
         <ul style={{
@@ -10,8 +12,8 @@ const MovieList = ({ key, data }) => {
         fontSize: 20,
         color: "grey",
       }}>
-                <li key={key}>
-                        <a href="">{data.title }</a>
+                <li key={data.id}>
+                    <Link to={`/movies/${data.id}`}>{data.title }</Link>
                 </li>
             </ul>
         </>

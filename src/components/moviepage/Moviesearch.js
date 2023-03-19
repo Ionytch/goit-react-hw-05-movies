@@ -4,8 +4,10 @@ import MovieList from "./Movielist";
 
 const MovieSearchList = ({ request }) => {
     const [movies, setMovies] = useState([]);
+    
      
     useEffect(() => {
+        if (!request) { return };
         getMoviesByRequest({request})
             .then(data => setMovies(data.results))
             .catch(error => {

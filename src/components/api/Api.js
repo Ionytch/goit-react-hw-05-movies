@@ -31,3 +31,13 @@ try {
     console.log(error.message);
 }
 };
+
+export const getImagesByMovieID = async(id)=>{
+    try {
+        const response = await axios(`${BASE_URL}${movie}/${id}/images?${API_KEY}&language=en-US`)
+        return response.data;
+    } catch (error) {
+        console.log(error.message);
+    }
+    };
+    

@@ -1,16 +1,19 @@
-import { getImagesByMovieID, getMoviesByID } from "components/api/Api";
+import { getCastMoviesByID, getImagesByMovieID, getMoviesByID } from "components/api/Api";
+import CastList from "components/cast/Cast";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const MovieDetailes = () => {
-  const [movies, setMovies] = useState({});
+  const [movies, setMovies] = useState([]);
   const[image, setImage]=useState();
+  const[cast,setCast]=useState([]);
      const {id} = useParams();
     console.log(id);
-    
+    console.log(movies.genres);
+    console.log (cast);
      
     useEffect(() => {
-         if (!id) { return };
+         if () { return };
         getMoviesByID(id)
             .then((res) => setMovies(res))
             .catch(error => {
@@ -27,6 +30,15 @@ const MovieDetailes = () => {
            });
    }, [id]);
 
+useEffect(() => {
+         if (!id) { return };
+        getCastMoviesByID(id)
+            .then((res) => setCast(res.cast))
+            .catch(error => {
+                console.log('error.message', error.message);
+            });
+    }, [id]);
+
     
     return (
         <>
@@ -34,14 +46,17 @@ const MovieDetailes = () => {
             } alt={movies.title}></img>
             <h2>{movies.title}</h2>
             <p>User score</p>
-            <ul>
-                <li>Overview: <p>{movies.overview }</p></li>
-                <li>Genres:
-                    {/* <p>{movies.genres.map(item=><ul>
+            
+                <div>Overview: <p>{movies.overview }</p></div>
+                <div>Genres:
+                    <div>{movies.genres.map(item=><ul>
                     <li key={item.id}>{item.name}</li>
-                </ul>) }</p> */}
-                </li>
-            </ul>
+                </ul>) }</div>
+                </div>
+                <div>additional information
+                    {/* <CastList data={cast}/> */}
+                </div>
+            
         </>
     )
 }

@@ -40,4 +40,13 @@ export const getImagesByMovieID = async(id)=>{
         console.log(error.message);
     }
     };
+
+export const getCastMoviesByID = async(id)=>{
+        try {
+            const response = await axios(`${BASE_URL}${movie}/${id}/credits?${API_KEY}&language=en-US`)
+            return response.data;
+        } catch (error) {
+            console.log(error.message);
+        }
+        };
     

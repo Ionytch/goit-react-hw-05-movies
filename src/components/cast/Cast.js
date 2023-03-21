@@ -1,10 +1,27 @@
+import { getCastMoviesByID } from "components/api/Api";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-const CastList=(data)=>{
+const CastList=()=>{
+    const[cast,setCast]=useState([]);
+    const {id} = useParams();
+    console.log(id);
+    console.log(cast);
+   
+
+
+    useEffect(() => {
+        if (!id) { return };
+       getCastMoviesByID(id)
+           .then(({cast}) => setCast(cast))
+           .catch(error => {
+               console.log('error.message', error.message);
+           });
+   }, [id]);
     
 return (
     <>
-    {data.map(item=>
+    {cast.map(item=>
     <ul key={item.id}>
         <li key={item.id}>
         <img src="" alt=""></img>
@@ -13,12 +30,10 @@ return (
         </li>
         
     </ul>)}
+
     </>
 )
 };
 
 
 export default CastList;
-{/* <div>{movies.genres.map(item=><ul>
-                    <li key={item.id}>{item.name}</li>
-                </ul>) }</div> */}

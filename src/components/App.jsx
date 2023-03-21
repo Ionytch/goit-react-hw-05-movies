@@ -4,6 +4,10 @@ import { Routes, Route, Link } from "react-router-dom";
 import MoviePage from "pages/Moviepage";
 import MovieDetailes from "./moviedetales/MovieDetales";
 import CastList from "./cast/Cast";
+import Review from "./rewiev/Review";
+import Layout from "./layout/Layout";
+
+
 
 // import Home from "path/to/pages/Home";
 // import Movies from "path/to/pages/About";
@@ -25,24 +29,17 @@ export const App = () => {
       // }}
     >
      
-     <header style={{
-        height: '100px',
-        color:'blue',
-        backgroundcolor: 'grey',
-      }}>
-      <nav >
-  <Link to="/" end>Home</Link>
-  <Link to="/movies">Movies</Link>
-      </nav>
-      </header> 
+     
       <Routes>
-        <Route path="/" element={<Homepage />} />
-         <Route path="/movies" element={<MoviePage />} />
-        <Route path="/movies/:id" element={<MovieDetailes />} >
+        <Route path="/" element={<Layout/>}>
+        <Route index element={<Homepage />} />
+         <Route path="movies" element={<MoviePage />} />
+        <Route path="movies/:id" element={<MovieDetailes />} >
           <Route path="cast" element={<CastList />} />
-          {/*<Route path="reviews" element={<Reviews />} />*/}
+          <Route path="reviews" element={<Review />} />
         </Route>
         <Route path="*" element={<PageNotFound />} /> 
+        </Route>
       </Routes>
     </div>
   );

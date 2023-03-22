@@ -1,6 +1,8 @@
 import { getCastMoviesByID } from "components/api/Api";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
+
+
 
 const CastList=()=>{
     const[cast,setCast]=useState([]);
@@ -21,6 +23,7 @@ const CastList=()=>{
     
 return (
     <>
+   
     {cast.map(item=>
     <ul key={item.id}>
         <li key={item.id}>

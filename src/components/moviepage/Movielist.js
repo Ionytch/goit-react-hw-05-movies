@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom";
+import { useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const MovieList = ({ data }) => {
+    const location=useLocation();
+    const backLink=useRef(location.state?.from??'/')
+
     console.log(data.id);
     return (
         <>
@@ -13,7 +17,7 @@ const MovieList = ({ data }) => {
         color: "grey",
       }}>
                 <li key={data.id}>
-                    <Link to={`/movies/${data.id}`}>{data.title }</Link>
+                    <Link to={`/movies/${data.id}`} state={{from:location}}>{data.title }</Link>
                 </li>
             </ul>
         </>

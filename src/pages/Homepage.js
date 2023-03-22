@@ -1,9 +1,11 @@
 import { trendingMovies } from "components/api/Api";
 import MovieList from "components/moviepage/Movielist";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const Homepage = () => { 
     const [movies, setMovies] = useState([]);
+    const location=useLocation();
 
     useEffect(() => {
         trendingMovies()
@@ -36,17 +38,3 @@ const Homepage = () => {
 export default Homepage;
 
 
-{/* <ul style={{
-                    display: 'flex',
-                    
-        justifyContent: 'center',
-                alignItems: 'center',
-        listStyle: 'none',
-        fontSize: 20,
-        color: "grey",
-      }}>
-                <li key={item.id}>
-                        <a href="">{item.title }</a>
-                </li>
-            </ul>)
-            } */}

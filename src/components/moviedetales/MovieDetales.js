@@ -1,7 +1,7 @@
 import { getCastMoviesByID, getImagesByMovieID, getMoviesByID, getMoviesReview } from "components/api/Api";
 import CastList from "components/cast/Cast";
 import Genres from "components/moviepage/Genres";
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 
 const MovieDetailes = () => {
@@ -59,8 +59,9 @@ const backLink=useRef(location.state?.from??'/')
                             <Link to={`reviews`} state={{from:location}}>reviews</Link>
                         </li>
                     </ul>
+                    <Suspense fallback={<div>loading...</div>}>
                     <Outlet />
-                    
+                    </Suspense>
                 </div>
             
         </>

@@ -9,7 +9,8 @@ const CastList=()=>{
     const {id} = useParams();
     console.log(id);
     console.log(cast);
-   
+   const image_URL = "http://image.tmdb.org/t/p/";
+    const imageSize = "w185";
 
 
     useEffect(() => {
@@ -27,7 +28,8 @@ return (
     {cast.map(item=>
     <ul key={item.id}>
         <li key={item.id}>
-        <img src="" alt=""></img>
+        <img src={`${image_URL}${imageSize}${item.profile_path}
+`} alt={item.name}></img>
         <div>Name: {item.name}</div>
         <div>Character: {item.character}</div>
         </li>

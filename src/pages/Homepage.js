@@ -1,12 +1,11 @@
 import { trendingMovies } from "components/api/Api";
 import MovieList from "components/moviepage/Movielist";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { HomepageStyle, HompageTitle } from "./Homepage.styled";
 
 const Homepage = () => { 
     const [movies, setMovies] = useState([]);
-    const location=useLocation();
-
+    
     useEffect(() => {
         trendingMovies()
             .then(data => setMovies(data.results))
@@ -17,20 +16,14 @@ const Homepage = () => {
 
 
     return (
-        <div style={{
-           
-        display: 'flex',
-        justifyContent: 'center',
-            alignItems: 'center',
-        flexDirection: 'column',
-         }}>
-            <h2>Trending today</h2>
+        <HomepageStyle>
+            <HompageTitle>Trending today</HompageTitle>
             {
                 movies.map(item=><MovieList key={item.id} data={item} />)
             }
             
         
-    </div>
+    </HomepageStyle>
 )
 
 }

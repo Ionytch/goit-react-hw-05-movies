@@ -32,15 +32,6 @@ try {
 }
 };
 
-export const getImagesByMovieID = async(id)=>{
-    try {
-        const response = await axios(`${BASE_URL}${movie}/${id}/images?${API_KEY}&language=en-US`)
-        return response;
-    } catch (error) {
-        console.log(error.message);
-    }
-    };
-
 export const getCastMoviesByID = async(id)=>{
         try {
             const response = await axios(`${BASE_URL}${movie}/${id}/credits?${API_KEY}&language=en-US`)

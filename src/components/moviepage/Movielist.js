@@ -1,25 +1,19 @@
-import { useRef } from "react";
+// import { useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { MovieItem, MovielistStyle } from "./Movielist.styled";
 
 const MovieList = ({ data }) => {
     const location=useLocation();
-    const backLink=useRef(location.state?.from??'/')
+    // const backLink=useRef(location.state?.from??'/')
 
     console.log(data.id);
     return (
         <>
-        <ul style={{
-                    display: 'flex',                    
-        justifyContent: 'center',
-                alignItems: 'center',
-        listStyle: 'none',
-        fontSize: 20,
-        color: "grey",
-      }}>
-                <li key={data.id}>
+        <MovielistStyle >
+                <MovieItem key={data.id}>
                     <Link to={`/movies/${data.id}`} state={{from:location}}>{data.title }</Link>
-                </li>
-            </ul>
+                </MovieItem>
+            </MovielistStyle>
         </>
     )
 }

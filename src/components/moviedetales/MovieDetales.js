@@ -1,5 +1,4 @@
-import { getCastMoviesByID, getImagesByMovieID, getMoviesByID, getMoviesReview } from "components/api/Api";
-import CastList from "components/cast/Cast";
+import { getMoviesByID } from "components/api/Api";
 import Genres from "components/moviepage/Genres";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";

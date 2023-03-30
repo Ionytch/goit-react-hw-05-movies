@@ -1,10 +1,6 @@
-// import Homepage from "pages/Homepage";
 import { PageNotFound } from "pages/Notfound";
-import { Routes, Route, Link } from "react-router-dom";
-// import MoviePage from "pages/Moviepage";
+import { Routes, Route } from "react-router-dom";
 import MovieDetailes from "./moviedetales/MovieDetales";
-// import CastList from "./cast/Cast";
-// import Review from "./rewiev/Review";
 import Layout from "./layout/Layout";
 import { lazy } from "react";
 

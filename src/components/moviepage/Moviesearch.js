@@ -1,6 +1,8 @@
 import { getMoviesByRequest } from "components/api/Api";
 import { useEffect, useState } from "react";
 import MovieList from "./Movielist";
+import PropTypes from "prop-types";
+
 
 const MovieSearchList = ({request}) => {
     const [movies, setMovies] = useState([]);
@@ -22,4 +24,9 @@ const MovieSearchList = ({request}) => {
         </>
     )
 }
+
+MovieSearchList.propTypes={
+    request: PropTypes.string.isRequired,
+};
+
 export default MovieSearchList;

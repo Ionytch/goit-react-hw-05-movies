@@ -1,10 +1,10 @@
-// import { useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { MovieItem, MovielistStyle } from "./Movielist.styled";
+import PropTypes from "prop-types";
+
 
 const MovieList = ({ data }) => {
     const location=useLocation();
-    // const backLink=useRef(location.state?.from??'/')
 
     console.log(data.id);
     return (
@@ -17,4 +17,9 @@ const MovieList = ({ data }) => {
         </>
     )
 }
+
+MovieList.propTypes={
+    data: PropTypes.array.isRequired,
+};
+
 export default MovieList;

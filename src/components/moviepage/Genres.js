@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Genres=({data})=>{
 
 return <>
@@ -8,5 +10,8 @@ return <>
 
 }
 
+Genres.propTypes={
+    data: PropTypes.array.isRequired,
+}
 
 export default Genres;

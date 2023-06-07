@@ -1,6 +1,6 @@
 import { getCastMoviesByID } from "components/api/Api";
 import { useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 
 
